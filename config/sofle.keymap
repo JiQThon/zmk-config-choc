@@ -326,34 +326,20 @@
          mods = <(MOD_LSFT|MOD_RSFT)>;
      };
 
-  };
-
-  /*
-   * Keymap generated using https://www.keymapper.dev/
-   * Import sofle_choc_keymap.json to view it.
-/ {
-combo_brc {
-timeout-ms = <50>;
-key-positions = <13 14>;
-bindings = <&macro_brc>;
-};
-
-macro_brc: macro_brc {
-compatible = "zmk,behavior-macro";
-label = "macro_brc";
-#binding-cells = <0>;
-bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
-};
-    combos {
-        compatible = "zmk,combos";
-        combo_n {
-            timeout-ms = <50>;
-            key-positions = <46 47>;
-            bindings = <&kp N>;
-        };
+    combo_brc {
+    timeout-ms = <50>;
+    key-positions = <13 14>;
+    bindings = <&macro_brc>;
     };
-};
-/ {
+
+    macro_brc: macro_brc {
+    compatible = "zmk,behavior-macro";
+    label = "macro_brc";
+    #binding-cells = <0>;
+    bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+    };
+  
+
 
     keymap {
         compatible = "zmk,keymap";
