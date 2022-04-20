@@ -10,30 +10,8 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define BASE 0
-#define NAV 1
-#define SYM 2
-#define NUM 3
-#define FUNC 4
-#define ADJUST 5
-#define LOWER 6
-
 #define TAPPING_TERM_MS 300
 #define TAPPING_TERM_MS_FAST 200
-
-/*
- * Layer Tap Settings
- */
-&lt {
-    // Increase layer tap time
-    tapping-term-ms = <TAPPING_TERM_MS>;
-
-    // Quickly tap-tap-holding the lt button will repeat the tap behavior
-    // For example enter-enter-hold, will output multiple enter while you
-    // keep holding the key.
-    // But holding enter without double tapping, will activate the layer.
-    quick_tap_ms = <200>;
-};
 
 /*
  * Caps Word Settings
@@ -49,32 +27,6 @@
       BACKSPACE
     >;
 };
-
-/ {
-
-  /*
-   * Conditional Layers
-   */
-
-  conditional_layers {
-      compatible = "zmk,conditional-layers";
-      func_layer {
-          if-layers = <SYM NUM>;
-          then-layer = <FUNC>;
-      };
-
-      // Both Hands
-      adjust_layer_1 {
-          if-layers = <NAV NUM>;
-          then-layer = <ADJUST>;
-      };
-
-      // Left Hand Only
-      adjust_layer_2 {
-          if-layers = <SYM NAV>;
-          then-layer = <ADJUST>;
-      };
-  };
 
   behaviors {
 
